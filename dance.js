@@ -41,9 +41,9 @@ function onLoad(){
 	//camera.lookAt(new THREE.Vector3(0,0,50));
 	//camera.target.set(0,0,0);
 
-	controls = new THREE.OrbitControls( camera );
-	controls.target.set( 0, 0, 0 );
-	controls.update();
+// 	controls = new THREE.OrbitControls( camera );
+// 	controls.target.set( 0, 0, 0 );
+// 	controls.update();
 
 	createEnvironment();
 	button = document.getElementById("dance");
@@ -213,6 +213,6 @@ function animate() {
 	// pointLight2.rotation.x = time;
 	// pointLight2.rotation.z = time;
 
-	controls.update();
+	//controls.update();
 	renderer.render(scene, camera);
 }
