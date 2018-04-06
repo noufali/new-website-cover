@@ -41,9 +41,14 @@ function onLoad(){
 	//camera.lookAt(new THREE.Vector3(0,0,50));
 	//camera.target.set(0,0,0);
 
-// 	controls = new THREE.OrbitControls( camera );
-// 	controls.target.set( 0, 0, 0 );
-// 	controls.update();
+	controls = new THREE.OrbitControls( camera );
+	controls.target.set( 0, 0, 0 );
+	controls.minDistance = 0;
+	controls.maxDistance = 400;
+	controls.minPolarAngle = 0; // radians
+  	controls.maxPolarAngle = Math.PI; // radians
+	controls.zoomSpeed = 2.0;
+	controls.update();
 
 	createEnvironment();
 	button = document.getElementById("dance");
@@ -56,11 +61,11 @@ function createEnvironment(){
 	// Room
 	let geometry = new THREE.BoxGeometry( 400, 400, 800 );
 	let boxMaterial = new THREE.MeshPhongMaterial( {
-					color: 0xa0adaf,
-					shininess: 10,
-					specular: 0x111111,
-					side: THREE.DoubleSide
-				} );
+	color: 0xa0adaf,
+	shininess: 10,
+	specular: 0x111111,
+	side: THREE.DoubleSide
+	} );
 	let cube = new THREE.Mesh( geometry, boxMaterial );
 	cube.receiveShadow = true;
 	cube.position.set(0,0,0);
@@ -99,17 +104,16 @@ function createEnvironment(){
 		action = object.mixer.clipAction( object.animations[ 0 ] );
 		action.play();
 		object.traverse( function ( child ) {
-			if ( child.isMesh ) {
-				//child.material.map = texture;
-				child.castShadow = true;
-				child.receiveShadow = true;
-			}
-		} );
-		scene.add( object );
-		//object.scale.set(6, 6, 6)
-	  object.position.set(0,-150,-100);
+		if ( child.isMesh ) {
+			//child.material.map = texture;
+			child.castShadow = true;
+			child.receiveShadow = true;
+		}
+	});
+	scene.add( object );
+	//object.scale.set(6, 6, 6)
+	object.position.set(0,-150,-100);
 	} );
-	console.log(loader);
 
 	// LIGHTS!
 	let ambient = new THREE.AmbientLight( 0x3BAB60,0.5);
@@ -129,7 +133,7 @@ function createEnvironment(){
 	let lightMesh1 = new THREE.Mesh( lightGeo1, lightMat1 );
 	lightMesh1.castShadow = true;
 	lightMesh1.receiveShadow = true;
-	pointLight.add( lightMesh1 );
+	//pointLight.add( lightMesh1 );
 	pointLight.castShadow = true;
 
 	scene.add(pointLight);
@@ -144,7 +148,7 @@ function createEnvironment(){
 	let lightMesh2 = new THREE.Mesh( lightGeo2, lightMat2 );
 	lightMesh2.castShadow = true;
 	lightMesh2.receiveShadow = true;
-	pointLight2.add( lightMesh2 );
+	//pointLight2.add( lightMesh2 );
 	pointLight2.castShadow = true;
 
 	scene.add(pointLight2);
