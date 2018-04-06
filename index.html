@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>Dance VR Party</title>
+
+		<script src="lib/three.js"></script>
+		<script src="lib/OrbitControls.js"></script>
+		<script src="lib/VRControls.js"></script>
+		<script src="lib/VREffect.js"></script>
+		<script src="lib/WebVR.js"></script>
+		<script src="lib/webvr-polyfill.js"></script>
+		<script src="lib/inflate.min.js"></script>
+		<script src="lib/FBXLoader.js"></script>
+
+		<style>
+			html, body {
+				margin: 0;
+				padding: 0;
+				overflow: hidden;
+			}
+			button{
+				position: absolute;
+				left: calc(50% - 50px);
+				bottom: 20px;
+				width:100px;
+				border: 0;
+				padding: 8px;
+				cursor: pointer;
+				background-color: black;
+				color: white;
+				font-family: sans-serif;
+				font-size: '13px';
+				font-style: normal;
+				text-align: center;
+				z-index: 999;
+			}
+		</style>
+	</head>
+
+	<body>
+		<div class="container">
+			<div id="sketch"></div>
+
+			<div id="vr_button">
+				<button id="dance" type="button" onclick="dancing()">DANCE</button>
+			</div>
+		</div>
+
+		<!-- <script src="threevr_03.js"></script> -->
+		<script src="dance.js"></script>
+	</body>
+</html>
