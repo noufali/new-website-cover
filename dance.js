@@ -111,22 +111,28 @@ function createEnvironment(){
 	// model
 	var manager = new THREE.LoadingManager();
 	var textureLoader = new THREE.TextureLoader( manager );
-	var texture = textureLoader.load( 'models/Nouf1_texture.jpg' );
+	var texture = textureLoader.load( 'models/gorilla_metalness1_2k2.png' );
 	var loader = new THREE.FBXLoader();
-	loader.load( 'models/Samba_Dancing.fbx', function ( object ) {
+	loader.load( 'models/Gorilla_Dancing.fbx', function ( object ) {
 		object.mixer = new THREE.AnimationMixer( object );
 		mixers.push( object.mixer );
 		action = object.mixer.clipAction( object.animations[ 0 ] );
 		action.play();
 		object.traverse( function ( child ) {
 			if ( child.isMesh ) {
-				//child.material.map = texture;
+				// child.material = new THREE.MeshLambertMaterial({
+				// 	color: 0xffffff,
+				// 	map: texture,
+				// 	skinning: true,
+				// 	side: THREE.DoubleSide
+				// });
+				// child.material.map = texture;
 				child.castShadow = true;
 				child.receiveShadow = true;
 			}
 		} );
 		scene.add( object );
-		//object.scale.set(6, 6, 6)
+		object.scale.set(1.3, 1.3, 1.3)
 	  object.position.set(0,-200,-100);
 	} );
 	console.log(loader);
