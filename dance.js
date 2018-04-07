@@ -112,7 +112,7 @@ function createEnvironment(){
 	});
 	scene.add( object );
 	//object.scale.set(6, 6, 6)
-	object.position.set(0,-150,-100);
+	object.position.set(0,-190,-100);
 	} );
 
 	// LIGHTS!
