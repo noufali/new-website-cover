@@ -40,9 +40,9 @@ function onLoad(){
 	// dollyCam.add(camera);
 	// scene.add(dollyCam);
 
-	controls = new THREE.OrbitControls( camera );
-	controls.target.set( 0, 0, 0 );
-	controls.update();
+	// controls = new THREE.OrbitControls( camera );
+	// controls.target.set( 0, 0, 0 );
+	// controls.update();
 
 	// camera.position.set(-86.95797110098906,   -3.571536128474456,   139.4166129600535);
 	// camera.rotation.set( -0.2160542551663327, -0.35443077885459445,  -0.0760251675039741);
