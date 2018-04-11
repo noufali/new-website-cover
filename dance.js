@@ -177,7 +177,7 @@ function createEnvironment(){
 function dancing() {
 	if (clicked == false) {
 		clicked = true;
-		button.textContent="STOP";
+		button.textContent="FREEZE";
 	} else {
 		clicked = false;
 		button.textContent="DANCE";
